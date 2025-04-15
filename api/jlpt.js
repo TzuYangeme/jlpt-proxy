@@ -11,12 +11,23 @@ export default async function handler(req, res) {
         <body>
           <h1>JLPT Vocabulary</h1>
           <ul>
-            ${data.vocabulary.map(item => `<li><b>${item.日文}</b>（${item.振り仮名}）：${item.日文解釋}</li>`).join('')}
+            ${data.vocabulary?.map(item => `
+              <li>
+                <b>${item.日文 || ""}</b>
+                （${item.振り仮名 || "N/A"}）：
+                ${item.日文解釋 || ""}
+              </li>
+            `).join('')}
           </ul>
 
           <h1>JLPT Grammar</h1>
           <ul>
-            ${data.grammar.map(item => `<li><b>${item.文法}</b>：${item.意思}</li>`).join('')}
+            ${data.grammar?.map(item => `
+              <li>
+                <b>${item.文法 || ""}</b>：
+                ${item.意思 || "（無說明）"}
+              </li>
+            `).join('')}
           </ul>
         </body>
       </html>
@@ -28,4 +39,3 @@ export default async function handler(req, res) {
     res.status(500).send("Error fetching data: " + error.message);
   }
 }
-
