@@ -14,8 +14,7 @@ export default async function handler(req, res) {
             ${data.vocabulary?.map(item => `
               <li>
                 <b>${item.日文 || ""}</b>
-                （${item.振り仮名 || "N/A"}）：
-                ${item.日文解釋 || ""}
+                （${item.振り仮名 || "N/A"}）：${item.日文解釋 || ""}
               </li>
             `).join('')}
           </ul>
@@ -24,8 +23,7 @@ export default async function handler(req, res) {
           <ul>
             ${data.grammar?.map(item => `
               <li>
-                <b>${item.文法 || ""}</b>：
-                ${item.意思 || "（無說明）"}
+                <b>${item.文法 || ""}</b>：${item.意思 || ""}
               </li>
             `).join('')}
           </ul>
