@@ -15,8 +15,8 @@ export default async function handler(req, res) {
               <li>
                 <b>${item.日文 || ""}</b>
                 （${item.振り仮名 || "N/A"}）：${item.日文解釋 || ""}
-                <br>例句（日文）：${item.例句（日文） || "N/A"}
-                <br>例句（中文）：${item.例句（中文） || "N/A"}
+                <br>例句（日文）：${item.例句（日文）|| "N/A"}
+                <br>例句（中文）：${item.例句（中文）|| "N/A"}
                 <br>新增日期：${item.新增日期 || "N/A"}
               </li>
             `).join('')}
